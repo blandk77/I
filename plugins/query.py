@@ -102,7 +102,7 @@ async def Cb_Handle(bot: Client, query: CallbackQuery):
     elif data == '480pc':
         try:
             c_thumb = await db.get_thumbnail(query.from_user.id)
-            ffmpeg = ""
+            ffmpeg = "-vf 'drawtext=text='For More Animes In Low MB, Check Out @Animes_Guy in Telegram':x='if(gte(t,240),w-(t-240)*60,NAN)':y=10:fontsize=20:fontcolor=white:enable='gte(t,240)':box=0' -map 0 -c:v libx265 -crf 30 -c:s copy -pix_fmt yuv420p -s 840x480 -b:v 150k -c:a libopus -b:a 35k -preset fast"
             await CompressVideo(bot=bot, query=query, ffmpegcode=ffmpeg, c_thumb=c_thumb)
 
         except Exception as e:
@@ -111,7 +111,7 @@ async def Cb_Handle(bot: Client, query: CallbackQuery):
     elif data == '720pc':
         try:
             c_thumb = await db.get_thumbnail(query.from_user.id)
-            ffmpeg = ""
+            ffmpeg = "-vf 'drawtext=text='For More Animes In Low MB, Check Out @Animes_Guy in Telegram':x='if(gte(t,240),w-(t-240)*60,NAN)':y=10:fontsize=20:fontcolor=white:enable='gte(t,240)':box=0' -map 0 -c:v libx265 -crf 30 -c:s copy -pix_fmt yuv420p -s 1280x720 -b:v 150k -c:a libopus -b:a 35k -preset veryfast"
             await CompressVideo(bot=bot, query=query, ffmpegcode=ffmpeg, c_thumb=c_thumb)
 
         except Exception as e:
@@ -121,7 +121,7 @@ async def Cb_Handle(bot: Client, query: CallbackQuery):
 
         try:
             c_thumb = await db.get_thumbnail(query.from_user.id)
-            ffmpeg = ""
+            ffmpeg = "-vf 'drawtext=text='For More Animes In Low MB, Check Out @Animes_Guy in Telegram':x='if(gte(t,240),w-(t-240)*60,NAN)':y=10:fontsize=20:fontcolor=white:enable='gte(t,240)':box=0' -map 0 -c:v libx265 -crf 30 -c:s copy -pix_fmt yuv420p -s 1920x1080 -b:v 150k -c:a libopus -b:a 35k -preset fast"
             await CompressVideo(bot=bot, query=query, ffmpegcode=ffmpeg, c_thumb=c_thumb)
 
         except Exception as e:
@@ -131,7 +131,7 @@ async def Cb_Handle(bot: Client, query: CallbackQuery):
 
         try:
             c_thumb = await db.get_thumbnail(query.from_user.id)
-            ffmpeg = ""
+            ffmpeg = "-vf 'drawtext=text='For More Animes In Low MB, Check Out @Animes_Guy in Telegram':x='if(gte(t,240),w-(t-240)*60,NAN)':y=10:fontsize=20:fontcolor=white:enable='gte(t,240)':box=0' -map 0 -c:v libx265 -crf 30 -c:s copy -pix_fmt yuv420p -s 640x360 -b:v 150k -c:a libopus -b:a 35k -preset fast"
             await CompressVideo(bot=bot, query=query, ffmpegcode=ffmpeg, c_thumb=c_thumb)
 
         except Exception as e:
