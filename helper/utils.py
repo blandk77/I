@@ -19,6 +19,13 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMedi
 QUEUE = []
 
 
+def get_system_stats():
+    cpu_usage = psutil.cpu_percent(interval=1)
+    ram = psutil.virtual_memory()
+    ram_usage = ram.percent
+    disk = psutil.disk_usage('/')
+    disk_space = f"{disk.free / (1024**3):.2f} GB"
+    return cpu_usage, ram_usage, disk_space
 
 async def progress_for_pyrogram(current, total, ud_type, message, start):
     now = time.time()
@@ -42,7 +49,11 @@ async def progress_for_pyrogram(current, total, ud_type, message, start):
             humanbytes(current),
             humanbytes(total),
             humanbytes(speed),            
-            estimated_total_time if estimated_total_time != '' else "0 s"
+            estimated_total_time if estimated_total_time != '' else "0 s",
+            cpu_usage,
+            ram_usage,
+            disk_space,
+            humanbytes(speed)
         )
         try:
             await message.edit(
